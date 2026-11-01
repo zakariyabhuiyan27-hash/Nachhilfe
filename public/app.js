@@ -1070,7 +1070,8 @@ async function renderLehrer() {
     app.innerHTML = shell(`<div class="card login-box"><h2>Anmelden</h2><p class="muted" style="font-weight:700">Gib den Lehrer-Schlüssel ein, den du in Cloudflare als <code>TEACHER_KEY</code> gespeichert hast.</p>
       <input class="inp" type="password" placeholder="Lehrer-Schlüssel" data-key><div style="height:12px"></div><button class="btn block" data-login>Anmelden</button></div>`);
     const inp = app.querySelector("[data-key]");
-    const doLogin = () => { lsSet("lw:teacher", inp.value.trim()); renderLehrer(); };
+    const doLogin = () => { const v = inp.value.trim(); if (!v) return inp.focus(); lsSet("lw:teacher", v); renderLehrer(); };
+    setTimeout(() => inp.focus(), 50);
     app.querySelector("[data-login]").onclick = doLogin; inp.onkeydown = (e) => e.key === "Enter" && doLogin();
     return;
   }
@@ -1084,7 +1085,10 @@ async function renderLehrer() {
     if (!r.ok) throw new Error(j.error || r.status);
     ov = j;
   } catch (e) {
-    app.querySelector("main").innerHTML = `<div class="card"><h2>Keine Verbindung zur Datenbank</h2><p class="muted">${esc(e.message)}</p></div>`;
+    // Gespeicherten Schlüssel verwerfen, damit das Eingabefeld wieder erscheint
+    localStorage.removeItem("lw:teacher");
+    app.querySelector("main").innerHTML = `<div class="card login-box"><h2>Anmeldung hat nicht geklappt</h2><p class="muted" style="font-weight:700">${esc(e.message)}</p><button class="btn block" data-retry>Schlüssel neu eingeben</button></div>`;
+    app.querySelector("[data-retry]").onclick = () => renderLehrer();
     return;
   }
   const hwAll = await getJSON("data/hausaufgaben.json", { cache: "no-store" }).catch(() => ({}));
