@@ -13,10 +13,8 @@
   "d1_databases": [
     {
       "binding": "DB",
-      "database_name": "lernwelt-db"
-      // Beim ersten Deploy legt Cloudflare die Datenbank automatisch an.
-      // Falls du sie selbst angelegt hast, hier ihre ID eintragen:
-      // "database_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+      "database_name": "lernwelt-db",
+      "database_id": "01ed8ea4-f84a-4f17-acd4-7125da8a7386"
     }
   ],
   "observability": { "enabled": true }
