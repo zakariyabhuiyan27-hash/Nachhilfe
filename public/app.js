@@ -1072,7 +1072,7 @@ async function renderLehrer() {
     const inp = app.querySelector("[data-key]");
     const doLogin = () => { const v = inp.value.trim(); if (!v) return inp.focus(); lsSet("lw:teacher", v); renderLehrer(); };
     setTimeout(() => inp.focus(), 50);
-    app.querySelector("[data-login]").onclick = doLogin; inp.onkeydown = (e) => e.key === "Enter" && doLogin();
+    app.querySelector("[data-login]").onclick = doLogin; inp.onkeydown = (e) => { if (e.key === "Enter") doLogin(); };
     return;
   }
   app.innerHTML = shell(`<div class="empty">Lade Daten …</div>`);
