@@ -1,0 +1,23 @@
+{
+  // Lernwelt für Rafi und Ibrahim – Cloudflare Worker mit statischen Dateien und D1-Datenbank
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "lernwelt",
+  "main": "src/worker.js",
+  "compatibility_date": "2025-10-01",
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/api/*"]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "lernwelt-db"
+      // Beim ersten Deploy legt Cloudflare die Datenbank automatisch an.
+      // Falls du sie selbst angelegt hast, hier ihre ID eintragen:
+      // "database_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    }
+  ],
+  "observability": { "enabled": true }
+}

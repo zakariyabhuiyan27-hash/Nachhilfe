@@ -1,0 +1,44 @@
+{
+  "_anleitung": [
+    "Jede Woche oben im Array der Schülerin/des Schülers einen neuen Block einfügen (neueste zuerst).",
+    "Arten von Aufgaben:",
+    "  station  -> { \"art\": \"station\", \"station\": \"<id der Station>\", \"runden\": 2 }  wird automatisch abgehakt, wenn die Runden ab 'start' gespielt wurden",
+    "  schreiben -> { \"art\": \"schreiben\", \"auftrag\": \"<id eines Schreibauftrags>\" }  wird abgehakt, wenn der Text abgegeben ist",
+    "  aufgabe  -> { \"art\": \"aufgabe\", \"text\": \"...\" }  hakt der Schüler selbst ab",
+    "Jede Woche braucht eine eindeutige id, z. B. 2026-kw46.",
+    "Station-ids Ibrahim: erzaehlen, nomen, dasdass, diktat, detektiv, satzglieder, kommas, praeteritum | Schreibaufträge: ib-reiz-gewitter, ib-reiz-nacht, ib-fussball, ib-warum",
+    "Station-ids Rafi: konjunktiv, sachtext, stilmittel, korrektur, gliedsatz, satzbau, argumente | Schreibaufträge: ra-indirekt, ra-analyse, ra-eroerterung"
+  ],
+  "ibrahim": [
+    {
+      "id": "2026-kw45",
+      "titel": "Woche 1: Wörter kleben und das/dass",
+      "start": "2026-11-02",
+      "faellig": "2026-11-08",
+      "notiz": "Super Start, Ibrahim! Diese Woche üben wir zusammengesetzte Nomen und das/dass. Mach jeden Tag ein bisschen.",
+      "aufgaben": [
+        { "art": "station", "station": "nomen", "runden": 2 },
+        { "art": "station", "station": "dasdass", "runden": 2 },
+        { "art": "station", "station": "diktat", "runden": 1 },
+        { "art": "schreiben", "auftrag": "ib-reiz-gewitter" },
+        { "art": "aufgabe", "text": "Jeden Tag 10 Minuten laut lesen" }
+      ]
+    }
+  ],
+  "rafi": [
+    {
+      "id": "2026-kw45",
+      "titel": "Woche 1: Konjunktiv und Stilmittel",
+      "start": "2026-11-02",
+      "faellig": "2026-11-08",
+      "notiz": "Diese Woche das Werkzeug für die Sachtextanalyse: indirekte Rede und Stilmittel. Die Erörterung aus dem Test schreiben wir in der Stunde fertig.",
+      "aufgaben": [
+        { "art": "station", "station": "konjunktiv", "runden": 2 },
+        { "art": "station", "station": "stilmittel", "runden": 1 },
+        { "art": "station", "station": "sachtext", "runden": 1 },
+        { "art": "schreiben", "auftrag": "ra-indirekt" },
+        { "art": "aufgabe", "text": "Stilmittel-Kartei: 5 neue Beispiele aus Zeitung oder Werbung sammeln" }
+      ]
+    }
+  ]
+}

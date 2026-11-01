@@ -1,0 +1,10 @@
+{
+  "name": "Lernwelt",
+  "short_name": "Lernwelt",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fff8f1",
+  "theme_color": "#ff7a45",
+  "lang": "de",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}

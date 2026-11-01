@@ -1,0 +1,8 @@
+{
+  "_hinweis": "Liste der Schüler auf der Startseite. Für einen neuen Schüler: Eintrag hier ergänzen und eine Datei data/<id>.json anlegen.",
+  "lehrer": "Zakariya",
+  "schueler": [
+    { "id": "ibrahim", "name": "Ibrahim", "klasse": "Klasse 6", "avatar": "🦁", "farbe": "#ff7a45" },
+    { "id": "rafi", "name": "Rafi", "klasse": "Klasse 9", "avatar": "🦅", "farbe": "#6c5ce7" }
+  ]
+}
