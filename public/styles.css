@@ -330,6 +330,19 @@ main.view { flex: 1; width: 100%; max-width: 760px; margin: 0 auto; padding: 18p
 .note .bub small { display: block; color: var(--c2d); font-weight: 900; font-size: 12px; margin-bottom: 2px; }
 .bonus { margin-top: 10px; padding: 10px 12px; border-radius: 14px; background: #fff7db; font-weight: 800; display: flex; align-items: center; gap: 8px; }
 .old-weeks summary { cursor: pointer; font-weight: 800; color: var(--muted); padding: 8px 2px; }
+.week-progress { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
+.week-progress .meter { flex: 1; margin-top: 0; }
+.week-progress small { color: var(--muted); font-weight: 800; font-size: 13px; white-space: nowrap; }
+.done-tasks summary { cursor: pointer; font-weight: 800; color: var(--good); padding: 4px 2px; }
+.done-tasks .task-list { margin-top: 8px; }
+.week-soon { opacity: .75; }
+.week-soon .week-head h3 { font-size: 17px; }
+.all-done, .week-done { display: flex; align-items: center; gap: 12px; }
+.all-done .e { font-size: 34px; }
+.all-done b, .week-done b { display: block; font-weight: 800; }
+.all-done small, .week-done small { color: var(--muted); font-weight: 700; }
+.week-done { padding: 10px 4px; border-bottom: 2px solid var(--line); }
+.week-done:last-child { border-bottom: 0; }
 .empty { text-align: center; padding: 30px 16px; color: var(--muted); font-weight: 700; }
 .empty .e { font-size: 52px; display: block; margin-bottom: 6px; }
 

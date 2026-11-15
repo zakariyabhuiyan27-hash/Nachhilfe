@@ -857,25 +857,50 @@ function speak(text, rate = 0.85) {
 function viewAufgaben() {
   if (!S.hw.length) return `<div class="empty"><span class="e">📭</span>Noch keine Hausaufgaben eingetragen.</div>`;
   const t = today();
-  const sorted = [...S.hw].sort((a, b) => (b.start || "").localeCompare(a.start || ""));
-  const aktuell = sorted.filter((w) => w.start <= t || w === aktuelleWoche());
-  const zukunft = sorted.filter((w) => !aktuell.includes(w));
-  const card = (w, open) => {
-    const hs = hwStatus(w); const bonus = S.prog.hwBonus[w.id];
+  const byStart = (a, b) => (a.start || "").localeCompare(b.start || "");
+  const isDone = (w) => hwStatus(w).complete;
+  const cur = aktuelleWoche();
+  // Gruppen: diese Woche (falls offen), ältere offene Wochen, kommende Wochen, erledigte Wochen
+  const offenAlt = S.hw.filter((w) => w !== cur && w.start <= t && !isDone(w)).sort(byStart).reverse(); // neueste zuerst
+  const zukunft = S.hw.filter((w) => w.start > t).sort(byStart); // nächste Woche zuerst
+  const erledigt = S.hw.filter((w) => (w === cur || w.start <= t) && isDone(w)).sort(byStart).reverse();
+  const dueHtml = (w, hs) => {
     const left = daysBetween(t, w.faellig);
-    const due = hs.complete ? `<span class="due ok">✅ erledigt</span>` : left < 0 ? `<span class="due late">überfällig seit ${-left} Tag${left === -1 ? "" : "en"}</span>` : left <= 1 ? `<span class="due soon">fällig ${left === 0 ? "heute" : "morgen"}</span>` : `<span class="due">fällig ${fmtDateLong(w.faellig)}<br><span class="muted">noch ${left} Tage</span></span>`;
+    return hs.complete ? `<span class="due ok">✅ erledigt</span>` : left < 0 ? `<span class="due late">überfällig seit ${-left} Tag${left === -1 ? "" : "en"}</span>` : left <= 1 ? `<span class="due soon">fällig ${left === 0 ? "heute" : "morgen"}</span>` : `<span class="due">fällig ${fmtDateLong(w.faellig)}<br><span class="muted">noch ${left} Tage</span></span>`;
+  };
+  const head = (w, hs) => `<div class="week-head"><div><h3>${esc(w.titel)}</h3><div class="muted" style="font-weight:700;font-size:14px">${fmtDate(w.start)} bis ${fmtDate(w.faellig)}</div></div>${dueHtml(w, hs)}</div>`;
+  // Offene Woche: offene Aufgaben zeigen, erledigte eingeklappt darunter
+  const card = (w, withNote) => {
+    const hs = hwStatus(w);
+    const todo = hs.items.filter((it) => !it.done), done = hs.items.filter((it) => it.done);
     return `<div class="card week">
-      <div class="week-head"><div><h3>${esc(w.titel)}</h3><div class="muted" style="font-weight:700;font-size:14px">${fmtDate(w.start)} bis ${fmtDate(w.faellig)}</div></div>${due}</div>
-      ${w.notiz ? `<div class="note"><div class="t-ava">👨‍🏫</div><div class="bub"><small>${esc(S.lehrer)}</small>${esc(w.notiz)}</div></div>` : ""}
-      ${open ? `<div class="task-list">${hs.items.map((it) => taskHtml(w, it)).join("")}</div>` : `<p class="muted" style="font-weight:700">${hs.doneCount} von ${hs.total} erledigt</p>`}
-      ${bonus ? `<div class="bonus">🎁 Bonus kassiert: +100 XP${bonus.puenktlich ? " · pünktlich ⏰" : ""}</div>` : hs.total ? `<div class="bonus">🎁 Alles erledigt = +100 XP Bonus</div>` : ""}
+      ${head(w, hs)}
+      ${withNote && w.notiz ? `<div class="note"><div class="t-ava">👨‍🏫</div><div class="bub"><small>${esc(S.lehrer)}</small>${esc(w.notiz)}</div></div>` : ""}
+      <div class="week-progress"><div class="meter"><i style="width:${hs.total ? Math.round((hs.doneCount / hs.total) * 100) : 0}%"></i></div><small>${hs.doneCount} von ${hs.total} erledigt</small></div>
+      <div class="task-list">${todo.map((it) => taskHtml(w, it)).join("")}</div>
+      ${done.length ? `<details class="done-tasks"><summary>✓ ${done.length} erledigt anzeigen</summary><div class="task-list">${done.map((it) => taskHtml(w, it)).join("")}</div></details>` : ""}
+      ${hs.total ? `<div class="bonus">🎁 Alles erledigt = +100 XP Bonus</div>` : ""}
     </div>`;
   };
-  const [first, ...rest] = aktuell;
+  // Kommende Woche: nur kurze Vorschau, Runden zählen erst ab dem Start
+  const preview = (w) => `<div class="card week week-soon">
+      <div class="week-head"><div><h3>${esc(w.titel)}</h3><div class="muted" style="font-weight:700;font-size:14px">${fmtDate(w.start)} bis ${fmtDate(w.faellig)} · ${(w.aufgaben || []).length} Aufgaben</div></div><span class="due">ab ${fmtDateLong(w.start)}</span></div>
+    </div>`;
+  // Erledigte Woche: eine Zeile
+  const doneRow = (w) => {
+    const bonus = S.prog.hwBonus[w.id];
+    return `<div class="week-done"><span>✅</span><div><b>${esc(w.titel)}</b><small>${fmtDate(w.start)} bis ${fmtDate(w.faellig)}${bonus ? ` · +100 XP${bonus.puenktlich ? " · pünktlich ⏰" : ""}` : ""}</small></div></div>`;
+  };
+  const curOpen = cur && cur.start <= t && !isDone(cur);
+  const curDone = cur && cur.start <= t && isDone(cur);
+  const next = zukunft[0];
   return `<div class="section-title" style="margin-top:4px"><h2>📬 Deine Hausaufgaben</h2></div>
-    ${first ? card(first, true) : ""}
-    ${zukunft.length ? `<div class="section-title"><h2>Demnächst</h2></div>${zukunft.map((w) => card(w, true)).join("")}` : ""}
-    ${rest.length ? `<details class="old-weeks"><summary>Frühere Wochen (${rest.length})</summary>${rest.map((w) => card(w, true)).join("")}</details>` : ""}`;
+    ${curOpen ? card(cur, true) : ""}
+    ${curDone ? `<div class="card week all-done"><span class="e">🎉</span><div><b>Diese Woche ist alles erledigt!</b><small>${esc(cur.titel)}${next ? ` · Die nächste Woche startet ${fmtDateLong(next.start)}` : ""}</small></div></div>` : ""}
+    ${!curOpen && !curDone && !offenAlt.length && !zukunft.length ? `<div class="empty"><span class="e">🎉</span>Alles erledigt!</div>` : ""}
+    ${offenAlt.length ? `<div class="section-title"><h2>Noch nicht fertig</h2><span class="muted">${offenAlt.length} Woche${offenAlt.length > 1 ? "n" : ""}</span></div>${offenAlt.map((w) => card(w, false)).join("")}` : ""}
+    ${zukunft.length ? `<div class="section-title"><h2>Demnächst</h2></div>${zukunft.map(preview).join("")}` : ""}
+    ${erledigt.length ? `<details class="old-weeks"><summary>Erledigte Wochen (${erledigt.length})</summary>${erledigt.map(doneRow).join("")}</details>` : ""}`;
 }
 function taskHtml(w, it) {
   if (it.art === "station") {
