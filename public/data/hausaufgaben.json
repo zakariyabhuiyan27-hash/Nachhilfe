@@ -6,10 +6,83 @@
     "  schreiben -> { \"art\": \"schreiben\", \"auftrag\": \"<id eines Schreibauftrags>\" }  wird abgehakt, wenn der Text abgegeben ist",
     "  aufgabe  -> { \"art\": \"aufgabe\", \"text\": \"...\" }  hakt der Schüler selbst ab",
     "Jede Woche braucht eine eindeutige id, z. B. 2026-kw46.",
-    "Station-ids Ibrahim: erzaehlen, nomen, dasdass, diktat, detektiv, satzglieder, kommas, praeteritum | Schreibaufträge: ib-reiz-gewitter, ib-reiz-nacht, ib-fussball, ib-warum",
-    "Station-ids Rafi: konjunktiv, sachtext, stilmittel, korrektur, gliedsatz, satzbau, argumente | Schreibaufträge: ra-indirekt, ra-analyse, ra-eroerterung"
+    "Station-ids Ibrahim: erzaehlen, nomen, dasdass, diktat, detektiv, satzglieder, kommas, praeteritum | Schreibaufträge: ib-reiz-gewitter, ib-reiz-nacht, ib-fussball, ib-warum, ib-reiz-winter, ib-geschenk",
+    "Station-ids Rafi: konjunktiv, sachtext, stilmittel, korrektur, gliedsatz, satzbau, argumente | Schreibaufträge: ra-indirekt, ra-analyse, ra-eroerterung, ra-stilmittel, ra-analyse-voll, ra-bbb, ra-eroerterung-2",
+    "Phase-2-Stationen (Ibrahim: satzglieder, kommas, praeteritum | Rafi: gliedsatz, satzbau, argumente) öffnen erst am 2026-12-07, vorher nicht als Hausaufgabe eintragen."
   ],
   "ibrahim": [
+    {
+      "id": "2026-kw51",
+      "titel": "Woche 6: Komma-Kanal und wörtliche Rede",
+      "start": "2026-12-14",
+      "faellig": "2026-12-20",
+      "notiz": "Letzte Woche vor den Ferien! Jetzt lernst du, wo Kommas hingehören und wie man wörtliche Rede richtig schreibt. In deiner Geschichte dürfen die Figuren endlich miteinander reden.",
+      "aufgaben": [
+        { "art": "station", "station": "kommas", "runden": 2 },
+        { "art": "station", "station": "praeteritum", "runden": 1 },
+        { "art": "station", "station": "satzglieder", "runden": 1 },
+        { "art": "station", "station": "erzaehlen", "runden": 1 },
+        { "art": "schreiben", "auftrag": "ib-geschenk" },
+        { "art": "aufgabe", "text": "Jeden Tag 10 Minuten laut lesen" }
+      ]
+    },
+    {
+      "id": "2026-kw50",
+      "titel": "Woche 5: Neue Inseln! Satzglieder und Zeit-Maschine",
+      "start": "2026-12-07",
+      "faellig": "2026-12-13",
+      "notiz": "Drei neue Inseln sind offen! Diese Woche geht es um Satzglieder und das Präteritum der starken Verben. Die Verben-Karteikarten helfen dir auch beim Geschichtenschreiben.",
+      "aufgaben": [
+        { "art": "station", "station": "satzglieder", "runden": 2 },
+        { "art": "station", "station": "praeteritum", "runden": 2 },
+        { "art": "station", "station": "diktat", "runden": 1 },
+        { "art": "schreiben", "auftrag": "ib-reiz-winter" },
+        { "art": "aufgabe", "text": "10 Karteikarten mit starken Verben schreiben (vorne: gehen, hinten: ging) und jeden Tag einmal durchgehen" }
+      ]
+    },
+    {
+      "id": "2026-kw49",
+      "titel": "Woche 4: Fit-Check vor den neuen Inseln",
+      "start": "2026-11-30",
+      "faellig": "2026-12-06",
+      "notiz": "Bevor nächste Woche neue Inseln aufgehen, holen wir uns auf den alten noch Sterne. Schau, wo du noch keine 3 Sterne hast, und spiel dort eine Extra-Runde.",
+      "aufgaben": [
+        { "art": "station", "station": "diktat", "runden": 2 },
+        { "art": "station", "station": "dasdass", "runden": 2 },
+        { "art": "station", "station": "detektiv", "runden": 1 },
+        { "art": "station", "station": "nomen", "runden": 1 },
+        { "art": "schreiben", "auftrag": "ib-warum" },
+        { "art": "aufgabe", "text": "Jeden Tag 10 Minuten laut lesen" }
+      ]
+    },
+    {
+      "id": "2026-kw48",
+      "titel": "Woche 3: Fehler-Detektiv und Satzanfänge",
+      "start": "2026-11-23",
+      "faellig": "2026-11-29",
+      "notiz": "Diese Woche wirst du zum Detektiv: Finde die Fehler, bevor dein Lehrer sie findet! Und in deiner Geschichte probierst du die neuen Satzanfänge aus.",
+      "aufgaben": [
+        { "art": "station", "station": "detektiv", "runden": 2 },
+        { "art": "station", "station": "nomen", "runden": 1 },
+        { "art": "station", "station": "erzaehlen", "runden": 1 },
+        { "art": "schreiben", "auftrag": "ib-fussball" },
+        { "art": "aufgabe", "text": "5 zusammengesetzte Nomen aus deinem Lesebuch heraussuchen und mit Artikel aufschreiben (die Haustür)" }
+      ]
+    },
+    {
+      "id": "2026-kw47",
+      "titel": "Woche 2: Spannend erzählen und Diktat",
+      "start": "2026-11-16",
+      "faellig": "2026-11-22",
+      "notiz": "Weiter geht's, Ibrahim! Diese Woche übst du, wie eine Geschichte richtig spannend wird. Denk an Einleitung, Höhepunkt und Schluss.",
+      "aufgaben": [
+        { "art": "station", "station": "erzaehlen", "runden": 2 },
+        { "art": "station", "station": "diktat", "runden": 2 },
+        { "art": "station", "station": "dasdass", "runden": 1 },
+        { "art": "schreiben", "auftrag": "ib-reiz-nacht" },
+        { "art": "aufgabe", "text": "Jeden Tag 10 Minuten laut lesen" }
+      ]
+    },
     {
       "id": "2026-kw45",
       "titel": "Woche 1: Wörter kleben und das/dass",
@@ -26,6 +99,78 @@
     }
   ],
   "rafi": [
+    {
+      "id": "2026-kw51",
+      "titel": "Woche 6: Erörterungs-Arena",
+      "start": "2026-12-14",
+      "faellig": "2026-12-20",
+      "notiz": "Zum Abschluss vor den Ferien die komplette Erörterung. Erst die Gliederung nach dem Sanduhr-Prinzip, dann schreiben. Dein stärkstes Argument kommt direkt vor das Fazit.",
+      "aufgaben": [
+        { "art": "station", "station": "argumente", "runden": 2 },
+        { "art": "station", "station": "gliedsatz", "runden": 1 },
+        { "art": "station", "station": "satzbau", "runden": 1 },
+        { "art": "station", "station": "konjunktiv", "runden": 1 },
+        { "art": "schreiben", "auftrag": "ra-eroerterung-2" },
+        { "art": "aufgabe", "text": "Gliederung nach dem Sanduhr-Prinzip auf Papier anlegen und als Foto in die Stunde mitbringen" }
+      ]
+    },
+    {
+      "id": "2026-kw50",
+      "titel": "Woche 5: Gliedsätze und Satzbau",
+      "start": "2026-12-07",
+      "faellig": "2026-12-13",
+      "notiz": "Drei neue Stationen sind offen. Diese Woche Grammatik: Gliedsatzarten an der Konjunktion erkennen, Satzglieder und Attribute bestimmen. Im Text setzt du die Gliedsätze gleich gezielt ein.",
+      "aufgaben": [
+        { "art": "station", "station": "gliedsatz", "runden": 2 },
+        { "art": "station", "station": "satzbau", "runden": 2 },
+        { "art": "station", "station": "korrektur", "runden": 1 },
+        { "art": "schreiben", "auftrag": "ra-bbb" },
+        { "art": "aufgabe", "text": "In deiner Analyse aus Woche 4 fünf Gliedsätze markieren und ihre Art bestimmen (kausal, konzessiv, final …)" }
+      ]
+    },
+    {
+      "id": "2026-kw49",
+      "titel": "Woche 4: Die komplette Sachtextanalyse",
+      "start": "2026-11-30",
+      "faellig": "2026-12-06",
+      "notiz": "Jetzt setzen wir alles zusammen: Einleitung, Inhalt in indirekter Rede, Aufbau und Sprache. Schreib die Analyse am Stück in 90 Minuten, wie in der Klassenarbeit.",
+      "aufgaben": [
+        { "art": "station", "station": "konjunktiv", "runden": 2 },
+        { "art": "station", "station": "sachtext", "runden": 1 },
+        { "art": "station", "station": "stilmittel", "runden": 1 },
+        { "art": "station", "station": "korrektur", "runden": 1 },
+        { "art": "schreiben", "auftrag": "ra-analyse-voll" },
+        { "art": "aufgabe", "text": "Die fertige Analyse zweimal Korrektur lesen: einmal nur Nominalisierungen und das/dass, einmal nur Fremdwörter" }
+      ]
+    },
+    {
+      "id": "2026-kw48",
+      "titel": "Woche 3: Lektorat und Stilmittel deuten",
+      "start": "2026-11-23",
+      "faellig": "2026-11-29",
+      "notiz": "Diese Woche zwei Schwerpunkte: Rechtschreibung im Lektorat und Stilmittel nicht nur benennen, sondern deuten. Immer mit „… wirkt …, weil …“.",
+      "aufgaben": [
+        { "art": "station", "station": "korrektur", "runden": 2 },
+        { "art": "station", "station": "stilmittel", "runden": 2 },
+        { "art": "station", "station": "konjunktiv", "runden": 1 },
+        { "art": "schreiben", "auftrag": "ra-stilmittel" },
+        { "art": "aufgabe", "text": "Eigene Fehlerliste anlegen: 10 Wörter aus deinen letzten Texten oder Tests, die du falsch geschrieben hattest, richtig aufschreiben" }
+      ]
+    },
+    {
+      "id": "2026-kw47",
+      "titel": "Woche 2: These und Aufbau",
+      "start": "2026-11-16",
+      "faellig": "2026-11-22",
+      "notiz": "Diese Woche geht es um den Kern jeder Sachtextanalyse: Textsorte erkennen, These im eigenen Satz formulieren und den Aufbau beschreiben.",
+      "aufgaben": [
+        { "art": "station", "station": "sachtext", "runden": 2 },
+        { "art": "station", "station": "konjunktiv", "runden": 1 },
+        { "art": "station", "station": "korrektur", "runden": 1 },
+        { "art": "schreiben", "auftrag": "ra-analyse" },
+        { "art": "aufgabe", "text": "Einen aktuellen Kommentar in der Zeitung oder online lesen und die These in einem Satz notieren („Der Autor vertritt die These, dass …“)" }
+      ]
+    },
     {
       "id": "2026-kw45",
       "titel": "Woche 1: Konjunktiv und Stilmittel",

@@ -100,10 +100,10 @@ In `public/data/hausaufgaben.json` beim Schüler einen neuen Block **oben** einf
 Ist alles erledigt, gibt es +100 XP Bonus, und rechtzeitig fertige Wochen zählen für das Abzeichen „Pünktlich“.
 
 **Stationen Ibrahim:** `erzaehlen`, `nomen`, `dasdass`, `diktat`, `detektiv`, `satzglieder`, `kommas`, `praeteritum`
-**Schreibaufträge Ibrahim:** `ib-reiz-gewitter`, `ib-reiz-nacht`, `ib-fussball`, `ib-warum`
+**Schreibaufträge Ibrahim:** `ib-reiz-gewitter`, `ib-reiz-nacht`, `ib-fussball`, `ib-warum`, `ib-reiz-winter`, `ib-geschenk`
 
 **Stationen Rafi:** `konjunktiv`, `sachtext`, `stilmittel`, `korrektur`, `gliedsatz`, `satzbau`, `argumente`
-**Schreibaufträge Rafi:** `ra-indirekt`, `ra-analyse`, `ra-eroerterung`
+**Schreibaufträge Rafi:** `ra-indirekt`, `ra-analyse`, `ra-eroerterung`, `ra-stilmittel`, `ra-analyse-voll`, `ra-bbb`, `ra-eroerterung-2`
 
 ## Übungen ergänzen oder ändern
 
