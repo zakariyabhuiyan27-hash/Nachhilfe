@@ -8,7 +8,7 @@
     "Jede Woche braucht eine eindeutige id, z. B. 2026-kw46.",
     "Station-ids Ibrahim: erzaehlen, nomen, dasdass, diktat, detektiv, satzglieder, kommas, praeteritum | Schreibaufträge: ib-reiz-gewitter, ib-reiz-nacht, ib-fussball, ib-warum, ib-reiz-winter, ib-geschenk",
     "Station-ids Rafi: konjunktiv, sachtext, stilmittel, korrektur, gliedsatz, satzbau, argumente | Schreibaufträge: ra-indirekt, ra-analyse, ra-eroerterung, ra-stilmittel, ra-analyse-voll, ra-bbb, ra-eroerterung-2",
-    "Phase-2-Stationen (Ibrahim: satzglieder, kommas, praeteritum | Rafi: gliedsatz, satzbau, argumente) öffnen erst am 2026-12-07, vorher nicht als Hausaufgabe eintragen."
+    "Alle Stationen sind offen. Eine Station lässt sich bis zu einem Datum sperren, indem man in data/<schüler>.json bei der Station \"oeffnetAm\": \"JJJJ-MM-TT\" einträgt."
   ],
   "ibrahim": [
     {

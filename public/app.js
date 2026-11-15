@@ -459,7 +459,7 @@ function viewKarte() {
       const tag = todo[st.id] ? `<span class="hwtag">HA</span>` : "";
       rows.push(`<div class="node-row" data-x="${50 + off}"><button class="${cls}" style="left:${50 + off}%" data-st="${esc(st.id)}" aria-label="${esc(st.titel)}">
         <div class="bubble">${firstOpenUndone === st ? '<span class="pulse"></span>' : ""}${tag}${esc(st.emoji)}</div>
-        <div class="lbl">${esc(st.titel)}</div>
+        <div class="lbl">${esc(st.titel)}${st.aufgaben ? `<small class="cnt">${st.aufgaben.length} Übungen</small>` : ""}</div>
         <div class="stars">${open ? starsHtml(rec.stars || 0) : `<small class="muted" style="font-weight:800;font-size:12px">ab ${fmtDate(st.oeffnetAm)}</small>`}</div>
       </button></div>`);
     }
@@ -510,6 +510,7 @@ function openStation(id) {
         <div class="kpi"><b>${rec.rounds || 0}</b><small>Runden</small></div>
       </div>
       <details ${rec.rounds ? "" : "open"}><summary class="linkbtn" style="list-style:none">💡 Merkkasten ${rec.rounds ? "anzeigen" : ""}</summary><div class="regel">${esc(st.regel)}</div></details>
+      <p class="muted" style="font-weight:700;font-size:14px">📚 ${st.aufgaben.length} Übungen in dieser Station · jede Runde mischt neu</p>
       <p class="muted" style="font-weight:700;font-size:14px">⭐ ab 50 %  ·  ⭐⭐ ab 75 %  ·  ⭐⭐⭐ ab 90 %</p>
       <button class="btn block" data-start>Runde starten · ${Math.min(st.rundenGroesse || 8, st.aufgaben.length)} Aufgaben</button>`;
   }

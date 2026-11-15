@@ -183,6 +183,7 @@ main.view { flex: 1; width: 100%; max-width: 760px; margin: 0 auto; padding: 18p
 .node.locked .bubble::after { content: "🔒"; position: absolute; right: -6px; bottom: -6px; font-size: 22px; filter: none; }
 .node .lbl { font-weight: 900; font-size: 14px; background: #fff; padding: 3px 10px; border-radius: 10px; box-shadow: 0 2px 0 var(--line); max-width: 150px; text-align: center; line-height: 1.2; }
 .node .stars { font-size: 15px; letter-spacing: 1px; line-height: 1; }
+.node .lbl .cnt { display: block; font-size: 11px; font-weight: 800; color: var(--muted); }
 .node .pulse { position: absolute; inset: -9px; border-radius: 50%; border: 3px solid var(--c1); opacity: .5; animation: pulse 1.8s infinite; }
 .node .hwtag { position: absolute; top: -8px; left: -10px; background: var(--bad); color: #fff; font-size: 11px; font-weight: 900; border-radius: 8px; padding: 2px 6px; box-shadow: 0 2px 0 #c13a40; }
 @keyframes pulse { 0% { transform: scale(.9); opacity: .6 } 100% { transform: scale(1.25); opacity: 0 } }

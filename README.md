@@ -128,7 +128,7 @@ Alles steht in `public/data/ibrahim.json` und `public/data/rafi.json`. Jede Stat
 - Bei `komma` markiert `|` direkt hinter einem Wort, dass dort ein Komma hingehört.
 - Falsch beantwortete Aufgaben kommen in späteren Runden häufiger dran, bis sie sitzen.
 
-Phase-2-Stationen öffnen am 07.12.2026 (`"oeffnetAm"`). Willst du eine früher freischalten, das Datum ändern.
+Alle Stationen sind offen. Willst du eine Station bis zu einem Datum sperren, trag bei ihr `"oeffnetAm": "2026-12-07"` ein.
 
 ## Spielregeln (für dich zum Erklären)
 
